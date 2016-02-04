@@ -1,6 +1,6 @@
 package pl.edu.uj.jg.services;
 
-import pl.edu.uj.jg.domain.Product;
+import pl.edu.uj.jg.domain.products.Product;
 
 import java.util.List;
 

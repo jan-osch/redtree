@@ -2,23 +2,14 @@ package pl.edu.uj.jg.services;
 
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
-import pl.edu.uj.jg.domain.Product;
+import pl.edu.uj.jg.domain.products.Product;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.PersistenceUnit;
 import java.util.List;
 
 @Service
 @Profile("jpa")
-public class ProductServiceJpaDaoImpl implements ProductService {
-
-    private EntityManagerFactory entityManagerFactory;
-
-    @PersistenceUnit
-    public void setEntityManagerFactory(EntityManagerFactory entityManagerFactory) {
-        this.entityManagerFactory = entityManagerFactory;
-    }
+public class ProductServiceJpaDaoImpl extends AbstractJpaDao implements ProductService {
 
     @Override
     public List<Product> listAllProducts() {
@@ -48,11 +39,8 @@ public class ProductServiceJpaDaoImpl implements ProductService {
         EntityManager entityManager = getEntityManager();
 
         entityManager.getTransaction().begin();
-        entityManager.remove(entityManager.find(Product.class,id));
+        entityManager.remove(entityManager.find(Product.class, id));
         entityManager.getTransaction().commit();
     }
 
-    private EntityManager getEntityManager() {
-        return this.entityManagerFactory.createEntityManager();
-    }
 }

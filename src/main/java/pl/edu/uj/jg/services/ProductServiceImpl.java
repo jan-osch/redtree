@@ -2,7 +2,7 @@ package pl.edu.uj.jg.services;
 
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
-import pl.edu.uj.jg.domain.Product;
+import pl.edu.uj.jg.domain.products.Product;
 import pl.edu.uj.jg.exceptions.ProductEmptyException;
 
 import java.util.ArrayList;

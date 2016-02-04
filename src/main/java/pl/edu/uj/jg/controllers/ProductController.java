@@ -1,6 +1,6 @@
 package pl.edu.uj.jg.controllers;
 
-import pl.edu.uj.jg.domain.Product;
+import pl.edu.uj.jg.domain.products.Product;
 import pl.edu.uj.jg.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

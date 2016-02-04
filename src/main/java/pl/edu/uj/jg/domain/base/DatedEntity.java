@@ -7,7 +7,7 @@ import javax.persistence.MappedSuperclass;
 
 @MappedSuperclass
 public abstract class DatedEntity extends BaseEntity {
-    @Type(type = "org.jadira.usertype.dateandtime.joda.PersistentLocalDateTime")
+    @Type(type="org.jadira.usertype.dateandtime.joda.PersistentDateTime")
     private DateTime dateCreated;
 
     public DateTime getDateCreated() {
@@ -15,10 +15,6 @@ public abstract class DatedEntity extends BaseEntity {
     }
 
     public DatedEntity() {
-    }
-
-    public DatedEntity(String name) {
-        this.setNow();
     }
 
     public void setDateCreated(DateTime dateCreated) {
