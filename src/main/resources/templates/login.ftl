@@ -1,24 +1,17 @@
+<#import "skeleton.ftl" as skeleton>
+<@skeleton.page title="Login">
 <#-- @ftlvariable name="_csrf" type="org.springframework.security.web.csrf.CsrfToken" -->
 <#-- @ftlvariable name="error" type="java.util.Optional<String>" -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>Log in</title>
-</head>
-<body>
-<nav role="navigation">
-    <ul>
-        <li><a href="/">Home</a></li>
-    </ul>
-</nav>
 
 <h1>Log in</h1>
 
 <p>You can use: demo@localhost / demo</p>
 
 <form role="form" action="/login" method="post">
-    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+    <#if _csrf??>
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+
+    </#if>
 
     <div>
         <label for="email">Email address</label>
@@ -35,8 +28,7 @@
     <button type="submit">Sign in</button>
 </form>
 
-<#if error.isPresent()>
-<p>The email or password you have entered is invalid, try again.</p>
-</#if>
-</body>
-</html>
+    <#if error.isPresent()>
+    <p>The email or password you have entered is invalid, try again.</p>
+    </#if>
+</@skeleton.page >
