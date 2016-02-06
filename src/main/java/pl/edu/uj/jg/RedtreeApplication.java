@@ -71,7 +71,7 @@ public class RedtreeApplication {
         CategoryRepository categoryRepository = ctx.getBean(CategoryRepository.class);
         Iterable<Category> all = categoryRepository.findAll();
         for(Category c: all){
-            System.out.println(c.getSubcategories().toString());
+//            System.out.println(c.getSubcategories().toString());
         }
 
     }
