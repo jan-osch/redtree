@@ -14,12 +14,12 @@ import java.util.Map;
 @Profile("pureMemory")
 public class ProductServiceImpl implements ProductService {
 
-    private Map<Integer, Product> productMap;
-    private Integer currentKey;
+    private Map<Long, Product> productMap;
+    private Long currentKey;
 
 
     public ProductServiceImpl() {
-        this.currentKey = 0;
+        this.currentKey = 0l;
         loadProducts();
     }
 
@@ -50,7 +50,7 @@ public class ProductServiceImpl implements ProductService {
         this.productMap.remove(id);
     }
 
-    private Integer getNextKey() {
+    private Long getNextKey() {
         return this.currentKey++;
     }
 
