@@ -1,4 +1,4 @@
-package pl.edu.uj.jg.domain.products;
+package pl.edu.uj.jg.domain.products.features;
 
 import pl.edu.uj.jg.domain.base.NamedEntity;
 

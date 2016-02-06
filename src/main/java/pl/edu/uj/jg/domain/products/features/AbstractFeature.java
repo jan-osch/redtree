@@ -1,6 +1,7 @@
-package pl.edu.uj.jg.domain.products;
+package pl.edu.uj.jg.domain.products.features;
 
 import pl.edu.uj.jg.domain.base.BaseEntity;
+import pl.edu.uj.jg.domain.products.Product;
 
 import javax.persistence.*;
 
