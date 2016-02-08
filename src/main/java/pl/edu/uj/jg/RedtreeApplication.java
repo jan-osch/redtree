@@ -3,18 +3,18 @@ package pl.edu.uj.jg;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
-import pl.edu.uj.jg.domain.products.Category;
-import pl.edu.uj.jg.domain.products.LeafCategory;
-import pl.edu.uj.jg.domain.products.features.IntegerAttribute;
-import pl.edu.uj.jg.domain.products.features.IntegerFeature;
-import pl.edu.uj.jg.domain.products.Product;
-import pl.edu.uj.jg.domain.social.Account;
-import pl.edu.uj.jg.domain.social.Review;
-import pl.edu.uj.jg.repositories.CategoryRepository;
-import pl.edu.uj.jg.repositories.IntegerAttributeRepository;
-import pl.edu.uj.jg.repositories.IntegerFeatureRepository;
-import pl.edu.uj.jg.repositories.ReviewRepository;
-import pl.edu.uj.jg.services.ProductService;
+import pl.edu.uj.jg.catalogue.domain.products.Category;
+import pl.edu.uj.jg.catalogue.domain.products.LeafCategory;
+import pl.edu.uj.jg.catalogue.domain.products.features.IntegerAttribute;
+import pl.edu.uj.jg.catalogue.domain.products.features.IntegerFeature;
+import pl.edu.uj.jg.catalogue.domain.products.Product;
+import pl.edu.uj.jg.catalogue.domain.social.Account;
+import pl.edu.uj.jg.catalogue.domain.social.Review;
+import pl.edu.uj.jg.catalogue.repositories.CategoryRepository;
+import pl.edu.uj.jg.catalogue.repositories.IntegerAttributeRepository;
+import pl.edu.uj.jg.catalogue.repositories.IntegerFeatureRepository;
+import pl.edu.uj.jg.catalogue.repositories.ReviewRepository;
+import pl.edu.uj.jg.catalogue.services.ProductService;
 
 @SpringBootApplication
 public class RedtreeApplication {
@@ -66,12 +66,15 @@ public class RedtreeApplication {
         IntegerFeatureRepository integerFeatureRepository = ctx.getBean(IntegerFeatureRepository.class);
 
         ReviewRepository reviewRepository = ctx.getBean(ReviewRepository.class);
+
+
         reviewRepository.save(review);
 
         CategoryRepository categoryRepository = ctx.getBean(CategoryRepository.class);
         Iterable<Category> all = categoryRepository.findAll();
+
         for(Category c: all){
-//            System.out.println(c.getSubcategories().toString());
+            System.out.println(c.getSubcategories().toString());
         }
 
     }

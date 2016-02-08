@@ -17,7 +17,7 @@
     <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 
     <link href="/static/css/redtree.css"
-          th:href="@{css/guru.css}" rel="stylesheet" media="screen"/>
+          rel="stylesheet" media="screen"/>
     <title>${title}</title>
 </head>
 <body>
@@ -25,6 +25,13 @@
     <ul>
         <li><a href="/">Home</a></li>
         <li><a href="/login">Login</a></li>
+        <li>
+            <form action="/logout" method="post">
+                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                <button type="submit">Log out</button>
+            </form>
+        </li>
+        <li><a href="/register">Register</a></li>
     </ul>
 </nav>
 <div class="container">
