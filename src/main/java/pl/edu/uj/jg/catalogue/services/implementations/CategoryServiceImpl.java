@@ -1,4 +1,4 @@
-package pl.edu.uj.jg.catalogue.services;
+package pl.edu.uj.jg.catalogue.services.implementations;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -8,6 +8,7 @@ import pl.edu.uj.jg.catalogue.domain.products.Category;
 import pl.edu.uj.jg.catalogue.domain.products.LeafCategory;
 import pl.edu.uj.jg.catalogue.repositories.CategoryRepository;
 import pl.edu.uj.jg.catalogue.repositories.LeafCategoryRepository;
+import pl.edu.uj.jg.catalogue.services.CategoryService;
 
 @Service
 @Transactional
@@ -34,17 +35,17 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public void createSubcategory(Long parentId, String subcategoryName) {
+    public Category createSubcategory(Long parentId, String subcategoryName) {
         Category subcategory = createCategoryByName(subcategoryName);
         addAsSubcategoryToParent(parentId, subcategory);
-        categoryRepository.save(subcategory);
+        return categoryRepository.save(subcategory);
     }
 
     @Override
-    public void createLeafCategory(Long parentId, String leafCategoryName) {
+    public LeafCategory createLeafCategory(Long parentId, String leafCategoryName) {
         LeafCategory subcategory = createLeafCategoryByName(leafCategoryName);
         addAsSubcategoryToParent(parentId, subcategory);
-        leafCategoryRepository.save(subcategory);
+        return leafCategoryRepository.save(subcategory);
     }
 
     @Override
@@ -67,6 +68,16 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public void deleteLeafCategory(Long id) {
         leafCategoryRepository.delete(id);
+    }
+
+    @Override
+    public Category getCategoryByName(String name) {
+        return categoryRepository.findByName(name);
+    }
+
+    @Override
+    public LeafCategory getLeafCategoryByName(String name) {
+        return leafCategoryRepository.findByName(name);
     }
 
     private Category createCategoryByName(String name) {
@@ -96,7 +107,6 @@ public class CategoryServiceImpl implements CategoryService {
     private void addAsSubcategoryAndPersist(AbstractCategory subcategory, Category parent) {
         parent.addSubcategory(subcategory);
         subcategory.setParent(parent);
-        categoryRepository.save(parent);
     }
 
 }

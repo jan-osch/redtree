@@ -8,4 +8,5 @@ import pl.edu.uj.jg.catalogue.domain.products.Category;
 @Repository
 @Transactional
 public interface CategoryRepository extends CrudRepository<Category, Long> {
+    Category findByName(String name);
 }

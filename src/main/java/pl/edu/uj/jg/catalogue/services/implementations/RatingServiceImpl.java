@@ -1,13 +1,18 @@
-package pl.edu.uj.jg.catalogue.services;
+package pl.edu.uj.jg.catalogue.services.implementations;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import pl.edu.uj.jg.catalogue.domain.social.Rating;
 import pl.edu.uj.jg.catalogue.domain.social.Review;
 import pl.edu.uj.jg.catalogue.repositories.AccountRepository;
 import pl.edu.uj.jg.catalogue.repositories.ProductRepository;
 import pl.edu.uj.jg.catalogue.repositories.RatingRepository;
 import pl.edu.uj.jg.catalogue.repositories.ReviewRepository;
+import pl.edu.uj.jg.catalogue.services.RatingService;
 
+@Service
+@Transactional
 public class RatingServiceImpl implements RatingService {
 
     private RatingRepository ratingRepository;

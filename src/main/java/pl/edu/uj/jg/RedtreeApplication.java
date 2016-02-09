@@ -11,6 +11,6 @@ public class RedtreeApplication {
     public static void main(String[] args) {
         ApplicationContext ctx = SpringApplication.run(RedtreeApplication.class, args);
         DataInitializer dataInitializer = ctx.getBean(DataInitializer.class);
-        dataInitializer.preloadData();
+        dataInitializer.initialize();
     }
 }

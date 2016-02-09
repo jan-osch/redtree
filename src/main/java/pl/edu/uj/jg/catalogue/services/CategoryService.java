@@ -1,13 +1,14 @@
 package pl.edu.uj.jg.catalogue.services;
 
 import pl.edu.uj.jg.catalogue.domain.products.Category;
+import pl.edu.uj.jg.catalogue.domain.products.LeafCategory;
 
 public interface CategoryService {
     Category createRootCategory(String name);
 
-    void createSubcategory(Long parentId, String subcategoryName);
+    Category createSubcategory(Long parentId, String subcategoryName);
 
-    void createLeafCategory(Long parentId, String leafCategoryName);
+    LeafCategory createLeafCategory(Long parentId, String leafCategoryName);
 
     void changeParent(Long id, Long newParentId);
 
@@ -16,4 +17,8 @@ public interface CategoryService {
     void deleteCategory(Long id);
 
     void deleteLeafCategory(Long id);
+
+    Category getCategoryByName(String name);
+
+    LeafCategory getLeafCategoryByName(String name);
 }

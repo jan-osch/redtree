@@ -36,7 +36,6 @@ public class UserServiceImpl implements UserService {
         return userRepository.findAll(new Sort("email"));
     }
 
-
     @Override
     public User create(UserCreateForm form) {
         User user = new User();

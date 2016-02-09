@@ -1,5 +1,7 @@
 package pl.edu.uj.jg.catalogue.domain.products.features;
 
+import pl.edu.uj.jg.catalogue.domain.products.attributes.StringAttribute;
+
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;

@@ -18,6 +18,8 @@ public class Product extends RatableEntity {
     @JoinColumn(name = "categoryId")
     private LeafCategory category;
 
+    private String imageUrl;
+
     public Product() {
     }
 
@@ -43,5 +45,13 @@ public class Product extends RatableEntity {
 
     public void setCategory(LeafCategory category) {
         this.category = category;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }

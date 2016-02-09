@@ -19,7 +19,7 @@ public class User extends BaseEntity{
     private Role role;
 
     @OneToOne
-    @PrimaryKeyJoinColumn
+    @JoinColumn(name="account_id")
     private Account account;
 
     public String getEmail() {

@@ -2,11 +2,18 @@ package pl.edu.uj.jg.catalogue.services;
 
 import pl.edu.uj.jg.catalogue.domain.products.Product;
 
-import java.util.List;
+import java.util.Collection;
 
 public interface ProductService {
-    List<Product> listAllProducts();
-    Product getProductById(Integer id);
+    Collection<Product> listAllProducts();
+
+    Product getProductById(Long id);
+
     Product saveOrUpdate(Product product);
-    void deleteProduct(Integer id);
+
+    void deleteProduct(Long id);
+
+    void createNewProduct(String name, String description, Long categoryId, String imageUrl);
+
+    Product findByName(String name);
 }
