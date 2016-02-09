@@ -10,6 +10,8 @@ import pl.edu.uj.jg.catalogue.repositories.CategoryRepository;
 import pl.edu.uj.jg.catalogue.repositories.LeafCategoryRepository;
 import pl.edu.uj.jg.catalogue.services.CategoryService;
 
+import java.util.Stack;
+
 @Service
 @Transactional
 public class CategoryServiceImpl implements CategoryService {
@@ -78,6 +80,19 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public LeafCategory getLeafCategoryByName(String name) {
         return leafCategoryRepository.findByName(name);
+    }
+
+    @Override
+    public Category fetchSubtree(Long id) {
+        Category category = categoryRepository.findOne(id);
+        Stack<Category> toExplore = new Stack<>();
+        toExplore.push(category);
+        while (!toExplore.empty()) {
+            toExplore.pop().getSubcategories().stream().filter(subcategory -> subcategory instanceof Category).forEach(subcategory -> {
+                toExplore.push((Category) subcategory);
+            });
+        }
+        return category;
     }
 
     private Category createCategoryByName(String name) {

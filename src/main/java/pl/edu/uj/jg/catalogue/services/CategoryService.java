@@ -21,4 +21,6 @@ public interface CategoryService {
     Category getCategoryByName(String name);
 
     LeafCategory getLeafCategoryByName(String name);
+
+    Category fetchSubtree(Long id);
 }
