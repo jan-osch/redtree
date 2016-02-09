@@ -40,3 +40,8 @@
 </body>
 </html>
 </#macro>
+
+<#macro productshort product>
+<div><p>${product.name}</p>
+    <p>${product.description}</p></div>
+</#macro>

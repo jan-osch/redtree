@@ -1,20 +1,7 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head lang="en">
-    <title> Products </title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-
-    <link href="http://cdn.jsdelivr.net/webjars/bootstrap/4.0.0/css/bootstrap.min.css"
-          th:href="@{/webjars/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css}"
-          rel="stylesheet" media="screen"/>
-
-    <script src="http://cdn.jsdelivr.net/webjars/jquery/3.0.0/jquery.min.js"
-            th:src="@{/webjars/jquery/3.0.0-alpha1/jquery.min.js}"></script>
-
-    <link href="../../static/css/guru.css"
-          th:href="@{css/guru.css}" rel="stylesheet" media="screen"/>
-</head>
-<body>
+<#-- @ftlvariable name="product" type="java.util.List<pl.edu.uj.jg.auth.domain.User>" -->
+<#import "skeleton.ftl" as skeleton>
+    <@skeleton.page title="List of current Users">
+    <h2>Product Details</h2>
 <div class="container">
     <div th:if="${not #lists.isEmpty(products)}">
         <h2>Product List</h2>
@@ -37,8 +24,4 @@
     </div>
 
     <a href="/product/new" class="btn btn-default">New Product</a>
-
 </div>
-
-</body>
-</html>

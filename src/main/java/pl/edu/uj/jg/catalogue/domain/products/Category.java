@@ -18,7 +18,6 @@ public class Category extends AbstractCategory {
         this.subcategories = subcategories;
     }
 
-
     public void addSubcategory(AbstractCategory subcategory) {
         this.getSubcategoriesInternal().add(subcategory);
     }

@@ -2,7 +2,6 @@ package pl.edu.uj.jg.catalogue.domain.products;
 
 import pl.edu.uj.jg.catalogue.domain.base.RatableEntity;
 import pl.edu.uj.jg.catalogue.domain.products.features.AbstractFeature;
-import pl.edu.uj.jg.catalogue.domain.social.Rating;
 
 import javax.persistence.*;
 import java.util.Collection;
@@ -14,9 +13,6 @@ public class Product extends RatableEntity {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "product")
     private Collection<AbstractFeature> features;
-
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "ratingSubject")
-    private Collection<Rating> ratings;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "categoryId")
@@ -31,14 +27,6 @@ public class Product extends RatableEntity {
 
     public void setFeatures(Collection<AbstractFeature> features) {
         this.features = features;
-    }
-
-    public Collection<Rating> getRatings() {
-        return ratings;
-    }
-
-    public void setRatings(Collection<Rating> ratings) {
-        this.ratings = ratings;
     }
 
     public String getDescription() {

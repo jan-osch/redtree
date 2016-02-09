@@ -11,8 +11,7 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Rating extends DatedEntity {
 
-    @ManyToOne(cascade= CascadeType.ALL)
-    @JoinColumn(name = "rating_subject_id")
+    @ManyToOne(cascade= CascadeType.PERSIST)
     private RatableEntity ratingSubject;
 
     @ManyToOne(cascade= CascadeType.PERSIST)

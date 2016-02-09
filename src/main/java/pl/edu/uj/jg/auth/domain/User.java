@@ -1,11 +1,9 @@
 package pl.edu.uj.jg.auth.domain;
 
-import pl.edu.uj.jg.domain.base.BaseEntity;
+import pl.edu.uj.jg.catalogue.domain.base.BaseEntity;
+import pl.edu.uj.jg.catalogue.domain.social.Account;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
+import javax.persistence.*;
 
 @Entity
 public class User extends BaseEntity{
@@ -19,6 +17,10 @@ public class User extends BaseEntity{
     @Column(name = "role", nullable = false)
     @Enumerated(EnumType.STRING)
     private Role role;
+
+    @OneToOne
+    @PrimaryKeyJoinColumn
+    private Account account;
 
     public String getEmail() {
         return email;
@@ -42,5 +44,13 @@ public class User extends BaseEntity{
 
     public void setRole(Role role) {
         this.role = role;
+    }
+
+    public Account getAccount() {
+        return account;
+    }
+
+    public void setAccount(Account account) {
+        this.account = account;
     }
 }
