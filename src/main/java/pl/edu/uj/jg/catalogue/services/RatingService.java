@@ -1,7 +1,8 @@
 package pl.edu.uj.jg.catalogue.services;
 
-import pl.edu.uj.jg.catalogue.domain.social.Rating;
-
 public interface RatingService {
-    Rating saveOrUpdateRating(Rating rating);
+    void addRatingToProduct(Long productId, Float rating, Long accountId);
+    void addReviewToProduct(Long productId, Float rating, String description, Long accountId);
+    void removeRatingFromProduct(Long ratingId);
+    void removeReviewFromProduct(Long reviewId);
 }
